@@ -18,7 +18,7 @@ def learn(X, Y):
     syn1 = 2 * np.random.random((5, 1)) - 1
 
     # loop de ajuste dos pesos.
-    for j in xrange(60000):
+    for j in xrange(1000):
         # Inicio da rede feed forwards
         l0 = np.array(X)
         l1 = nonlin(np.dot(l0, syn0))
