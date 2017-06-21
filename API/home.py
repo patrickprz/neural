@@ -11,7 +11,15 @@ def api_root():
 #Serao importados os dados para serem utiliazdos na previsao de jogadas
 @app.route('/import/<message>', methods=['GET', 'POST'])
 def importData(message):
+    '''
+    data = json.loads(message)[0]
+    dataInputs = data['inputs']
+    dataOutputs = data['outputs']
 
+    dataMessage = [{'inputs':dataInputs, 'outputs':dataOutputs}]
+    with open('test.json', 'wb') as outfile:
+        json.dump(dataMessage, outfile)
+    '''
     resp = Response(message, status=200, mimetype='application/json')
     resp.headers['Link'] = ''
 
@@ -39,5 +47,5 @@ def exportData():
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.120', port=5000)
-    #app.run()
+    #app.run(host='192.168.25.9', port=5000)
+    app.run()
