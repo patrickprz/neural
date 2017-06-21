@@ -8,32 +8,39 @@ public class HttpUtil : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		JsonData data = new JsonData ();
-
-		data.inputs = new List<int[]>();
-		data.outputs = new List<int[]>();
-
+		
+		JsonTraining dataTraining = new JsonTraining ();
+		dataTraining.inputs = new List<int[]>();
+		dataTraining.outputs = new List<int[]>();
 		int[] array1Test = new int[4] {1,0,1,0}; 
 		int[] array2Test = new int[1] {1}; 
+		dataTraining.inputs.Add (array1Test);
+		dataTraining.outputs.Add (array2Test);
 
-		data.inputs.Add (array1Test);
-		data.outputs.Add (array2Test);
-		data.inputs.Add (array1Test);
-		data.outputs.Add (array2Test);
+		string jsonTraning = GameDevWare.Serialization.Json.SerializeToString (dataTraining);
+		jsonTraning = jsonTraning.Replace (" ", string.Empty);
 
-		Debug.Log (data);
+		string urlTraining = "http://127.0.0.1:5000/training/" + jsonTraning;
+		//Debug.Log (urlTraining);
+		WWW wwwTraining = new WWW(urlTraining);
+		StartCoroutine(WaitForRequest(wwwTraining));
 
-		//string json = JsonUtility.ToJson(data);
+		//DIVISÃO ENTRE TREINAMENTO E PREDIÇÃO####################################################################
 
-		Debug.Log (JsonUtility.FromJson<JsonData>(json));
+		JsonPredict dataPrediction = new JsonPredict ();
+		dataPrediction.inputs = new List<int[]> ();
+		int[] arrayAtk = new int[4] { 1, 0, 1, 0 };
 
-		//json = '[{"inputs":[[0,0,1,0],[0,1,1,1],[1,0,1,0],[1,1,1,0]],"outputs":[[0],[1],[1],[0]]}]';
-			
+		dataPrediction.inputs.Add (arrayAtk);
+		dataPrediction.inputs.Add (arrayAtk);
+		string jsonPrediction = GameDevWare.Serialization.Json.SerializeToString (dataPrediction);
+		jsonPrediction = jsonPrediction.Replace (" ", string.Empty);
 
-		string url = "http://127.0.0.1:5000/import/" + json;
-		Debug.Log (url);
-		WWW www = new WWW(url);
-		StartCoroutine(WaitForRequest(www));
+		string urlPrediction = "http://127.0.0.1:5000/prediction/" + jsonPrediction;
+		//Debug.Log (urlPrediction);
+		WWW wwwPrediction = new WWW(urlPrediction);
+		StartCoroutine(WaitForRequest(wwwPrediction));
+
 	}
 
 	IEnumerator WaitForRequest(WWW www)
@@ -52,13 +59,21 @@ public class HttpUtil : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }
 
 
 [System.Serializable]
-public class JsonData
+public class JsonTraining
 {
 	public List<int[]> inputs;
 	public List<int[]> outputs;
+}
+
+[System.Serializable]
+public class JsonPredict
+{
+	public List<int[]> inputs;
 }
 	
