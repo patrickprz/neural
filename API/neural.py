@@ -27,10 +27,6 @@ def learn(X, Y):
         # calculo do erro da segunda camada
         l2_error = Y - l2
 
-        # print da media absoluta do erro quando o resto for igual a 0
-        # if (j% 10000) == 0:
-        #    print "Error:" + str(np.mean(np.abs(l2_error)))
-
         # O delta é utilizado para aumentar a certeza nas previsões com base nos erros anteriores.
         l2_delta = l2_error * nonlin(l2, deriv=True)
 
@@ -44,11 +40,12 @@ def learn(X, Y):
         syn1 += l1.T.dot(l2_delta)
         syn0 += l0.T.dot(l1_delta)
 
-    training = [{'syn0': syn0.tolist(), 'syn1': syn1.tolist(), 'error': l2_error.tolist()}]
+    training = [{'syn0': syn0.tolist(), 'syn1': syn1.tolist(), 'error': l2_error.tolist()}] #################MANDAR TODOS OS ERROS OU SÓ O DE L2
     with open('training.json', 'wb') as outfile:
         json.dump(training, outfile)
 
-    return syn0, syn1, l2_error
+    meanError = str(np.mean(np.abs(l2_error)) * 100)
+    return syn0, syn1, meanError
 
 
 def prediction(inputs):

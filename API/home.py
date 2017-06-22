@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 #from unittest import result
-from flask import Flask, url_for, render_template
+#from flask import Flask, url_for, render_template
+from flask import Flask, render_template
 import json
 from flask import Response
 from neural import learn, prediction
+#from StringIO import StringIO
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,11 +21,11 @@ def trainingRNA(message):
     dataInputs = data['inputs']
     dataOutputs = data['outputs']
 
-    syn0, syn1, l2_error = learn(dataInputs, dataOutputs)
+    syn0, syn1, error = learn(dataInputs, dataOutputs)
 
-    text = "JSON de treinamento importado com sucesso, o percentual de erro é de " + str(l2_error) + "%"
+    #text = "JSON de treinamento importado com sucesso, o percentual de erro é de " + error + "%"
 
-    resp = Response(text, status=200, mimetype='application/json')
+    resp = Response(str(error), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
 
     return resp
@@ -36,15 +38,21 @@ def predictionRNA(message):
     dataInputs = data['inputs']
 
     result = prediction(dataInputs)
+    '''' 
+    Jresult = [{'result': result.tolist()}]
+    jsonResult = StringIO()
+    json.dump(Jresult,jsonResult)
+    print jsonResult.getvalue()
     '''
-    resultJson = [{'result': result.tolist()}]
-    with open('result.json', 'wb') as outfile:
-        json.dump(resultJson, outfile)
-    '''
-    resp = Response("Ataque retornado " + str(result), status=200, mimetype='application/json')
+    print result[0][0]
+    resultAt = 0
+    if(result[0][0] > 0.5):
+        resultAt = 1
+    
+    resp = Response(str(resultAt), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
     return resp
 
 if __name__ == '__main__':
-    #app.run(host='192.168.25.9', port=5000)
+    #app.run(host='192.168.0.120', port=5000)
     app.run()

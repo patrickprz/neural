@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-	public List<int[]> atkList = new List<int[]>();
-	public List<int> auxList = new List<int> ();	
+	private List<int[]> atkList = new List<int[]>();
+	private List<int> auxList = new List<int> ();	
 
-	public List<int[]> nextAtkList = new List<int[]>();
-	public List<int> nextAuxList = new List<int> ();
+	private List<int[]> nextAtkList = new List<int[]>();
+	private List<int> nextAuxList = new List<int> ();
 
-	public List<int[]> auxForPredict = new List<int[]>();
+	private List<int[]> auxForPredict = new List<int[]>();
 
-	public bool prediction = false;
-	public bool canAttack = true;
+	private bool prediction = false;
+	private bool canAttack = true;
 
 	// Use this for initialization
 	void Start () {
@@ -27,12 +27,12 @@ public class PlayerInput : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.Z)) 
 		{
-			atk1 ();
+			atk0 ();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) 
 		{
-			atk2 ();
+			atk1 ();
 		}
 	}
 
@@ -44,7 +44,6 @@ public class PlayerInput : MonoBehaviour {
 			atkList.Add (auxList.ToArray());
 			if (prediction == true) 
 			{
-				Debug.Log ("Modo predict");
 				auxForPredict.Add (auxList.ToArray ());
 				canAttack = false;
 				HttpUtil.instance.Predict(auxForPredict); 
@@ -63,15 +62,21 @@ public class PlayerInput : MonoBehaviour {
 		}
 	}
 
-	void atk1()
+	public void atk0()
 	{
+		if (!canAttack)
+			return;
+		
 		addAtk (0);
-		Debug.Log ("Atk1");
+		Debug.Log ("Atk0");
 	}
 
-	void atk2()
+	public void atk1()
 	{
+		if (!canAttack)
+			return;
+		
 		addAtk (1);
-		Debug.Log ("Atk2");
+		Debug.Log ("Atk1");
 	}
 }
