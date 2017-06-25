@@ -7,7 +7,7 @@ public class HttpUtil : MonoBehaviour {
 	
 	public event System.Action OnFinishedProcessing;
 	public static HttpUtil instance;
-	public string apiUrl = "http://127.0.0.1:5000";
+	public string apiUrl = "http://127.0.0.1:5000/";
 
 	public string nextHit;
 	public string training;
@@ -27,7 +27,7 @@ public class HttpUtil : MonoBehaviour {
 		string jsonTraning = GameDevWare.Serialization.Json.SerializeToString (dataTraining);
 		jsonTraning = jsonTraning.Replace (" ", string.Empty);
 
-		string urlTraining = apiUrl +"/training/" + jsonTraning;
+		string urlTraining = apiUrl +"training/" + jsonTraning;
 
 		StartCoroutine(WaitForRequest(urlTraining));
 	}
@@ -40,7 +40,7 @@ public class HttpUtil : MonoBehaviour {
 		string jsonPrediction = GameDevWare.Serialization.Json.SerializeToString (dataPrediction);
 		jsonPrediction = jsonPrediction.Replace (" ", string.Empty);
 
-		string urlPrediction = apiUrl + "/prediction/" + jsonPrediction;
+		string urlPrediction = apiUrl + "prediction/" + jsonPrediction;
 
 		StartCoroutine(WaitForRequest(urlPrediction));
 	}

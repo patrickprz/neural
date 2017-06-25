@@ -54,7 +54,7 @@
      <Compile Include="Assets\HttpUtil.cs" />
      <Compile Include="Assets\Hud.cs" />
      <Compile Include="Assets\PlayerInput.cs" />
-     <None Include="Assets\ColorfulButtons\Credits.txt" />
+     <None Include="Assets\DualCorStudios\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

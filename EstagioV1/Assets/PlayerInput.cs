@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour {
 	void addAtk (int atk)
 	{
 		auxList.Add (atk);
-		if (auxList.Count == 3) 
+		if (auxList.Count == 4) 
 		{
 			atkList.Add (auxList.ToArray());
 			if (prediction == true) 
@@ -64,7 +64,7 @@ public class PlayerInput : MonoBehaviour {
 			}
 			prediction = true;
 		}
-		if (auxList.Count == 4) 
+		if (auxList.Count == 5) 
 		{
 			nextAuxList.Add (atk);
 			nextAtkList.Add (nextAuxList.ToArray());
