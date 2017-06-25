@@ -9,8 +9,10 @@ public class HttpUtil : MonoBehaviour {
 	public static HttpUtil instance;
 	public string apiUrl = "http://127.0.0.1:5000";
 
-	public Text nextHit;
-	public Text training;
+	public string nextHit;
+	public string training;
+
+	public double enemyPos;
 
 	void Awake(){
 		instance = this;	
@@ -55,11 +57,12 @@ public class HttpUtil : MonoBehaviour {
 			double value;
 			double.TryParse (www.text, out value);
 			if (value != 0 && value != 1) {
-				Debug.Log ("Treinamento realizado com erro de " + value + "%");
-				training.text = ("Treinamento realizado com erro de " + value + "%");
+				//Debug.Log ("Treinamento realizado com erro de: " + value + "%");
+				training = ("Erro de treinamento: " + value + "%");
 			} else {
-				Debug.Log ("Golpe previsto: " + value);
-				nextHit.text = ("Golpe previsto: " + value);
+				//Debug.Log ("Previsão: " + value);
+				//nextHit = ("Previsão: " + value);
+				enemyPos = value;
 			}
 
 		} else {
@@ -87,4 +90,7 @@ public class JsonPredict
 {
 	public List<int[]> inputs;
 }
+	
+
+
 	

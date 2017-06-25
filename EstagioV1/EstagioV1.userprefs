@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HttpUtil.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2D Cartoon Missiles\Scripts\MissileMove.cs">
     <Files>
-      <File FileName="Assets\HttpUtil.cs" Line="14" Column="2" />
-      <File FileName="Assets\PlayerInput.cs" Line="20" Column="21" />
-      <File FileName="Assets\Hud.cs" Line="22" Column="41" />
+      <File FileName="Assets\HttpUtil.cs" Line="95" Column="1" />
+      <File FileName="Assets\Hud.cs" Line="19" Column="5" />
+      <File FileName="Assets\EndTrigger.cs" Line="7" Column="1" />
+      <File FileName="Assets\EnemyController.cs" Line="12" Column="4" />
+      <File FileName="Assets\Enemy.cs" Line="6" Column="1" />
+      <File FileName="Assets\2D Cartoon Missiles\Scripts\MissileMove.cs" Line="13" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

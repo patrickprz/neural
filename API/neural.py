@@ -14,8 +14,8 @@ def learn(X, Y):
     # seed para geração dos números aleatórios.
     np.random.seed(1)
     # inicializa as sinapses com valores aleatórios.
-    syn0 = 2 * np.random.random((4, 5)) - 1
-    syn1 = 2 * np.random.random((5, 1)) - 1
+    syn0 = 2 * np.random.random((3, 4)) - 1
+    syn1 = 2 * np.random.random((4, 1)) - 1
 
     # loop de ajuste dos pesos.
     for j in xrange(1000):

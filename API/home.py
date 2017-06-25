@@ -38,7 +38,7 @@ def predictionRNA(message):
     dataInputs = data['inputs']
 
     result = prediction(dataInputs)
-    '''' 
+    ''''
     Jresult = [{'result': result.tolist()}]
     jsonResult = StringIO()
     json.dump(Jresult,jsonResult)
@@ -48,7 +48,7 @@ def predictionRNA(message):
     resultAt = 0
     if(result[0][0] > 0.5):
         resultAt = 1
-    
+
     resp = Response(str(resultAt), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
     return resp

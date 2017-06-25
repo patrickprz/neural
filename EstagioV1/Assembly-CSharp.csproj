@@ -46,9 +46,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\2D Cartoon Missiles\Scripts\LayerOrder.cs" />
+     <Compile Include="Assets\2D Cartoon Missiles\Scripts\MissileMove.cs" />
+     <Compile Include="Assets\EndTrigger.cs" />
+     <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\EnemyController.cs" />
      <Compile Include="Assets\HttpUtil.cs" />
      <Compile Include="Assets\Hud.cs" />
      <Compile Include="Assets\PlayerInput.cs" />
+     <None Include="Assets\ColorfulButtons\Credits.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
