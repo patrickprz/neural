@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='aprendizado.png') }}">
 <html>
 <title>RNA em jogos</title>
 <meta charset="UTF-8">
@@ -24,7 +25,7 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('https://static.pexels.com/photos/160107/pexels-photo-160107.jpeg');
+    background-image: url("/static/background.jpeg");
     min-height: 100%;
 }
 
@@ -38,6 +39,11 @@ body, html {
 .bgimg-3 {
     background-image: url("/w3images/parallax3.jpg");
     min-height: 400px;
+}
+
+div {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .w3-wide {letter-spacing: 10px;}
@@ -84,18 +90,19 @@ body, html {
 <!-- Container (PROJETO Section) -->
 <div class="w3-content w3-container w3-padding-64" id="PROJETO">
   <h3 class="w3-center">RNA PREDITIVA APLICADA EM JOGOS</h3>
-  <p class="w3-center"><em>Projeto realizado pelo aluno Patrick P. Rodrigues para a disciplina de estágio 1 do curso de Egenharia de Computação - UNIFTEC, sob a orientação do professor Me. Carlos Alberto Bertotto.</em></p>
+  <p class="w3-center"><em>Projeto realizado pelo aluno Patrick P. Rodrigues para a disciplina de estágio do curso de Engenharia de Computação - UNIFTEC, sob a orientação do professor Me. Carlos Alberto Bertotto.</em></p>
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>Patrick P. Rodrigues</b></p><br>
-      <img src="https://static.pexels.com/photos/160107/pexels-photo-160107.jpeg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
+      <img src="/static/me.jpg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
+
     </div>
 
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-padding-large">
       <br>
       <br>
-      <p>&nbsp O objetivo desse site é o de servir como uma apresentação das funcionalidades presentes no projeto e de qual maneira elas funcionam, juntamente com a API contida neste dominio.<br>&nbsp O papel da API é o de comunicar o jogo feito na engine Unity3D, com a rede neural feita em python, para isso a API faz o envio de arquivos JSONs entre API/RNA, para isso a API conta com dois modos de operação. No modo de treinamento os JSONs são enviados da engine para a RNA, contendo um historico de jogadas, esse historico de jogadas é recebido pela RNA processado fazendo com que ela assimile os padrões recebidos, já no modo de previsão a RNA recebe uma sequencia de ataques e devolve o ataque previsto, baseado nos ataques recebidos. Isso tudo é feito com requisições http, a maneira de chamar os métodos da api esta descrita a seguir.</p>
+      <p>&nbsp O objetivo desse site é o de servir como uma apresentação das funcionalidades presentes no projeto e de qual maneira elas funcionam, juntamente com a API contida neste domínio.<br>&nbsp O papel da API é o de comunicar o jogo feito na engine Unity3D, com a rede neural feita em Python, para isso a API faz o envio de arquivos JSONs entre API/RNA, para isso a API conta com dois modos de operação. No modo de treinamento os JSONs são enviados da engine para a RNA, contendo um histórico de jogadas, esse histórico de jogadas é recebido pela RNA e processado, fazendo com que ela assimile os padrões recebidos, já no modo de previsão a RNA recebe uma sequencia de comandos e devolve o comando previsto, baseado nas entradas recebidas. Isso tudo é feito com requisições http e a maneira de chamar os métodos da API esta descrita a seguir.</p>
       <p><b>Métodos de funcionamento da API:</b></p>
       <p>Prediction: SERVERIP/prediction/json </p>
       <p>Training: SERVERIP/training/json</p>
@@ -106,46 +113,50 @@ body, html {
 
 <!-- Container (RESULTADOS Section) -->
 <div class="w3-content w3-container w3-padding-64" id="RESULTADOS">
-  <h3 class="w3-center">RESULTADOS OBTIDOS</h3>
+  <h3 class="w3-center">RESULTADOS</h3>
   <p class="w3-center"><em>A seguir estão algumas imagens dos componentes e resultados obtidos durante o projeto.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
+      <img src="/static/game.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Jogo">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
+      <img src="/static/unity.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Projeto do jogo na engine Unity">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
+      <img src="/static/rna.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Estrutura da RNA">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
+      <img src="/static/synapses.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Pesos sinapticos">
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
+      <img src="/static/estrutura.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Estrutura do projeto">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
+      <img src="/static/aprendizado.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Método de aprendizado escrito em Python">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
+      <img src="/static/aprendizado.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
     </div>
 
     <div class="w3-col m3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/220px-Hausziege_04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
+      <img src="/static/aprendizado.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
     </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -177,10 +188,10 @@ body, html {
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
   <a href="#INICIO" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Inicio</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <div class="w3-xlarge w3-section w3-center">
+    <a href="https://www.facebook.com/patrickprw"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/patrickprz/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/patrickpr"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
   </div>
 </footer>
 </body>
