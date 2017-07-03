@@ -8,6 +8,7 @@ public class Hud : MonoBehaviour {
 	public InputField input;
 	//public Text nextHit;
 	public Text training;
+	public Text counter;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class Hud : MonoBehaviour {
 	void Update () {
 		//nextHit.text = HttpUtil.instance.nextHit;
 		training.text = HttpUtil.instance.training;
+		counter.text = PlayerInput.cont.ToString();
 	}
 
 	public void changeUrl()

@@ -27,6 +27,8 @@ public class PlayerInput : MonoBehaviour {
 	public float timeBetween = 1f;
 	private float timestamp;
 
+	public static int cont;
+
 	// Use this for initialization
 	void Start () {
 		HttpUtil.instance.OnFinishedProcessing += () => canAttack = true;
@@ -52,6 +54,7 @@ public class PlayerInput : MonoBehaviour {
 	void addAtk (int atk)
 	{
 		auxList.Add (atk);
+		cont = auxList.Count;
 		if (auxList.Count == 4) 
 		{
 			atkList.Add (auxList.ToArray());

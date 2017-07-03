@@ -51,6 +51,7 @@ def predictionRNA(message):
 
     resp = Response(str(resultAt), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
+    print resp
     return resp
 
 if __name__ == '__main__':
