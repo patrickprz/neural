@@ -11,7 +11,9 @@ app = Flask(__name__)
 @app.route('/')
 def api_root():
     #return 'API para predicao de dados usando redes neurais'
-    return render_template('home.html')
+    resp = Response('API - Neural/Unity', status=200, mimetype='application/json')
+    resp.headers['Link'] = ''
+    return resp
 
 #Serao importados os dados para serem utiliazdos na previsao de jogadas
 @app.route('/training/<message>', methods=['GET', 'POST'])
