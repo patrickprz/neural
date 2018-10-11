@@ -25,7 +25,7 @@ def trainingRNA(message):
 
     syn0, syn1, error = learn(dataInputs, dataOutputs)
 
-    #text = "JSON de treinamento importado com sucesso, o percentual de erro Ã© de " + error + "%"
+    #text = "JSON de treinamento importado com sucesso, o percentual de erro é de " + error + "%"
 
     resp = Response(str(error), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
@@ -57,5 +57,5 @@ def predictionRNA(message):
     return resp
 
 if __name__ == '__main__':
-    #app.run(host='192.168.0.120', port=5000)
-    app.run()
+    app.run(host='104.131.25.255', port=5000)
+    #app.run()
