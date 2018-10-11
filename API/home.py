@@ -46,14 +46,14 @@ def predictionRNA(message):
     json.dump(Jresult,jsonResult)
     print jsonResult.getvalue()
     '''
-    print result[0][0]
+    print (result[0][0])
     resultAt = 0
     if(result[0][0] > 0.5):
         resultAt = 1
 
     resp = Response(str(resultAt), status=200, mimetype='application/json')
     resp.headers['Link'] = ''
-    print resp
+    print (resp)
     return resp
 
 if __name__ == '__main__':
